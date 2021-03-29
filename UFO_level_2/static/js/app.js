@@ -25,9 +25,22 @@ submitButton.on("click", runEnter);
 function runEnter(){
 //prevent the page from refreshing
 d3.event.preventDefault();
+//input for city
+// var cityInput = d3.select("#city");
+// var cityInputValue = cityInput.property("value");
+// // input for state
+// var stateInput = d3.select("#state");
+// var stateInputValue = stateInput.property("value");
+// // input for country
+// var countryInput = d3.select("#country");
+// var countryInputValue = countryInput.property("value");
+// //input for shape
+// var shapeInput = d3.select("#shape");
+// var shapeInputValue = shapeInput.property("value");
+// get the input values from user
+
 // selecting the input element
 var inputElement = d3.select(".form-control");
-// get the input value from user
 var inputValue = inputElement.property("value");
 console.log(inputValue);
 //displaying user input
@@ -51,3 +64,18 @@ filtered.map(function (tableData) {
 };
 
 
+// if (tableData.filter(uforeport => uforeport.datetime === inputValue){
+//     tbody.html("");
+
+// filtered.map(function (tableData) {
+    
+//     const row = tbody.append("tr");
+//     console.log("tableData")
+//     console.log(tableData)
+
+//     Object.values(tableData).forEach((value) => {
+//       let cell = row.append("td");
+//       cell.text(value);
+//     });
+// });
+// };
