@@ -48,7 +48,7 @@ var cityUserInput = d3.select("#city");
 cityUserInput.on("click", runCity);
 // event trigger for button
 citySubmitButton.on("click", runCity);
-
+//function for city input
 function runCity(){
 //prevent the page from refreshing
 d3.event.preventDefault();
@@ -77,7 +77,7 @@ var stateUserInput = d3.select("#state");
 stateUserInput.on("click", runState);
 // event trigger for button
 stateSubmitButton.on("click", runState);
-
+//function for state input
 function runState(){
 //prevent the page from refreshing
 d3.event.preventDefault();
@@ -105,7 +105,7 @@ var countryUserInput = d3.select("#country");
 countryUserInput.on("click", runCountry);
 // event trigger for button
 countrySubmitButton.on("click", runCountry);
-
+//function for country input
 function runCountry(){
 //prevent the page from refreshing
 d3.event.preventDefault();
@@ -132,7 +132,7 @@ var shapeUserInput = d3.select("#shape");
 shapeUserInput.on("click", runShape);
 // event trigger for button
 shapeSubmitButton.on("click", runShape);
-
+//function for shape input
 function runShape(){
 //prevent the page from refreshing
 d3.event.preventDefault();
