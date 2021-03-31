@@ -46,6 +46,9 @@ shapeUserInput.on("click", runEnter);
 // event trigger for button
 shapeSubmitButton.on("click", runEnter);
 
+
+
+
 //------------------------------------------------------------------------
 //function 'runEnter'
 function runEnter(){
@@ -56,83 +59,85 @@ var dateInputElement = d3.select("#datetime");
 var dateInputValue = dateInputElement.property("value");
 console.log(dateInputValue);
 //filtering table from user input
-var filtered = tableData.filter(uforeport => uforeport.datetime === dateInputValue);
+var filtered = [tableData.filter(uforeport => uforeport.datetime === dateInputValue),
+    tableData.filter(uforeport => uforeport.city === cityInputValue),
+    tableData.filter(uforeport => uforeport.state === stateInputValue),
+    tableData.filter(uforeport => uforeport.country === countryInputValue),
+    tableData.filter(uforeport => uforeport.shape === shapeInputValue)];
+console.log(filtered);
 // clear table
 tbody.html("");
 //update table with queried entry
-filtered.map(function (tableData) {
-    const row = tbody.append("tr");
+// filtered.map(function (tableData) {
+//     var row = tbody.append("tr");
+// })
+//     Object.values(tableData).forEach((value) => {
+//       let cell = row.append("td");
+//       cell.text(value);
+//     });
 
-    Object.values(tableData).forEach((value) => {
-      let cell = row.append("td");
-      cell.text(value);
-    });
-});
 
 // //------------------------------------------------------------------------
 
 var cityInput = d3.select("#city");
 var cityInputValue = cityInput.property("value");
 console.log(cityInputValue);
-var cityFiltered = tableData.filter(uforeport => uforeport.city === cityInputValue);
+// var cityFiltered = tableData.filter(uforeport => uforeport.city === cityInputValue);
 //clear table
 
 //update table with queried entry
-cityFiltered.map(function (tableData) {
-   row = tbody.append("tr");
+// cityFiltered.map(function (tableData) {
+//    row = tbody.append("tr");
 
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
-});
+//    Object.values(tableData).forEach((value) => {
+//      let cell = row.append("td");
+//      cell.text(value);
+//    });
+// });
 
 // //------------------------------------------------------------------------
 
 var stateInput = d3.select("#state");
 var stateInputValue = stateInput.property("value");
 console.log(stateInputValue);
-var stateFiltered = tableData.filter(uforeport => uforeport.state === stateInputValue);
+// var stateFiltered = tableData.filter(uforeport => uforeport.state === stateInputValue);
 //update table with queried entry
-stateFiltered.map(function (tableData) {
-   row = tbody.append("tr");
-
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
-});
+// stateFiltered.map(function (tableData) {
+//    row = tbody.append("tr");
+// })
+//    Object.values(tableData).forEach((value) => {
+//      let cell = row.append("td");
+//      cell.text(value);
+//    });
+// });
 
 // //------------------------------------------------------------------------
 
 var countryInput = d3.select("#country");
 var countryInputValue = countryInput.property("value");
 console.log(countryInputValue);
-var countryFiltered = tableData.filter(uforeport => uforeport.country === countryInputValue);
+// var countryFiltered = tableData.filter(uforeport => uforeport.country === countryInputValue);
 //update table with queried entry
-countryFiltered.map(function (tableData) {
-   row = tbody.append("tr");
-
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
-});
+// countryFiltered.map(function (tableData) {
+//    row = tbody.append("tr");
+// })
+//    Object.values(tableData).forEach((value) => {
+//      let cell = row.append("td");
+//      cell.text(value);
+//    });
+// });
 
 // //------------------------------------------------------------------------
 
 var shapeInput = d3.select("#shape");
 var shapeInputValue = shapeInput.property("value");
 console.log(shapeInputValue);
-var shapeFiltered = tableData.filter(uforeport => uforeport.shape === shapeInputValue);
+// var shapeFiltered = tableData.filter(uforeport => uforeport.shape === shapeInputValue);
 
 //update table with queried entry
-shapeFiltered.map(function (tableData) {
-   row = tbody.append("tr");
+    // filtered.map(function (tableData) {
+    // row = tbody.append("tr");
 
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
-});
+
+// });
 };

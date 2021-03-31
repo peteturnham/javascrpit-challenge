@@ -10,6 +10,8 @@ data.forEach(function(uforeport){
         cell.text(value);
     });
 });
+
+
 //  button variables
 var submitButton = d3.select(".btn");
 var userInput = d3.select("#datetime");
@@ -17,6 +19,34 @@ var userInput = d3.select("#datetime");
 userInput.on("click", runEnter);
 // event trigger for button
 submitButton.on("click", runEnter);
+
+
+//  button variables
+var citySubmitButton = d3.select(".btn");
+var cityUserInput = d3.select("#city");
+
+// event trigger for form
+cityUserInput.on("click", runEnter);
+// event trigger for button
+citySubmitButton.on("click", runEnter);
+
+//  button variables
+var countrySubmitButton = d3.select(".btn");
+var countryUserInput = d3.select("#country");
+// event trigger for form
+countryUserInput.on("click", runEnter);
+// event trigger for button
+countrySubmitButton.on("click", runEnter);
+
+//  button variables
+var shapeSubmitButton = d3.select(".btn");
+var shapeUserInput = d3.select("#shape");
+// event trigger for form
+shapeUserInput.on("click", runEnter);
+// event trigger for button
+shapeSubmitButton.on("click", runEnter);
+
+//------------------------------------------------------------------------
 //function 'runEnter'
 function runEnter(){
 //prevent the page from refreshing
@@ -38,26 +68,15 @@ filtered.map(function (tableData) {
       cell.text(value);
     });
 });
-};
 
-//  button variables
-var citySubmitButton = d3.select(".btn");
-var cityUserInput = d3.select("#city");
+// //------------------------------------------------------------------------
 
-// event trigger for form
-cityUserInput.on("click", runCity);
-// event trigger for button
-citySubmitButton.on("click", runCity);
-
-function runCity(){
-//prevent the page from refreshing
-d3.event.preventDefault();
 var cityInput = d3.select("#city");
 var cityInputValue = cityInput.property("value");
 console.log(cityInputValue);
 var cityFiltered = tableData.filter(uforeport => uforeport.city === cityInputValue);
 //clear table
-tbody.html("");
+
 //update table with queried entry
 cityFiltered.map(function (tableData) {
    row = tbody.append("tr");
@@ -67,26 +86,13 @@ cityFiltered.map(function (tableData) {
      cell.text(value);
    });
 });
-}
 
-//  button variables
-var stateSubmitButton = d3.select(".btn");
-var stateUserInput = d3.select("#state");
+// //------------------------------------------------------------------------
 
-// event trigger for form
-stateUserInput.on("click", runState);
-// event trigger for button
-stateSubmitButton.on("click", runState);
-
-function runState(){
-//prevent the page from refreshing
-d3.event.preventDefault();
 var stateInput = d3.select("#state");
 var stateInputValue = stateInput.property("value");
 console.log(stateInputValue);
 var stateFiltered = tableData.filter(uforeport => uforeport.state === stateInputValue);
-//clear table
-tbody.html("");
 //update table with queried entry
 stateFiltered.map(function (tableData) {
    row = tbody.append("tr");
@@ -96,25 +102,13 @@ stateFiltered.map(function (tableData) {
      cell.text(value);
    });
 });
-}
 
-//  button variables
-var countrySubmitButton = d3.select(".btn");
-var countryUserInput = d3.select("#country");
-// event trigger for form
-countryUserInput.on("click", runCountry);
-// event trigger for button
-countrySubmitButton.on("click", runCountry);
+// //------------------------------------------------------------------------
 
-function runCountry(){
-//prevent the page from refreshing
-d3.event.preventDefault();
 var countryInput = d3.select("#country");
 var countryInputValue = countryInput.property("value");
 console.log(countryInputValue);
 var countryFiltered = tableData.filter(uforeport => uforeport.country === countryInputValue);
-//clear table
-tbody.html("");
 //update table with queried entry
 countryFiltered.map(function (tableData) {
    row = tbody.append("tr");
@@ -124,25 +118,14 @@ countryFiltered.map(function (tableData) {
      cell.text(value);
    });
 });
-}
 
-//  button variables
-var shapeSubmitButton = d3.select(".btn");
-var shapeUserInput = d3.select("#shape");
-// event trigger for form
-shapeUserInput.on("click", runShape);
-// event trigger for button
-shapeSubmitButton.on("click", runShape);
+// //------------------------------------------------------------------------
 
-function runShape(){
-//prevent the page from refreshing
-d3.event.preventDefault();
 var shapeInput = d3.select("#shape");
 var shapeInputValue = shapeInput.property("value");
 console.log(shapeInputValue);
 var shapeFiltered = tableData.filter(uforeport => uforeport.shape === shapeInputValue);
-//clear table
-tbody.html("");
+
 //update table with queried entry
 shapeFiltered.map(function (tableData) {
    row = tbody.append("tr");
@@ -152,4 +135,4 @@ shapeFiltered.map(function (tableData) {
      cell.text(value);
    });
 });
-}
+};
