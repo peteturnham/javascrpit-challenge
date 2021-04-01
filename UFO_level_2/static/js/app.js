@@ -56,52 +56,30 @@ var dateInputElement = d3.select("#datetime");
 var dateInputValue = dateInputElement.property("value");
 console.log(dateInputValue);
 //filtering table from user input
-var filtered = tableData.filter(uforeport => uforeport.datetime === dateInputValue);
-// clear table
-tbody.html("");
-//update table with queried entry
-filtered.map(function (tableData) {
-    const row = tbody.append("tr");
-
-    Object.values(tableData).forEach((value) => {
-      let cell = row.append("td");
-      cell.text(value);
-    });
-});
-
-// //------------------------------------------------------------------------
+var filtered = tableData;
+if (dateInputValue) {
+  filtered = filtered.filter(uforeport => uforeport.datetime === dateInputValue);
+}
 
 var cityInput = d3.select("#city");
 var cityInputValue = cityInput.property("value");
 console.log(cityInputValue);
-var cityFiltered = tableData.filter(uforeport => uforeport.city === cityInputValue);
-//clear table
+
+if (cityInputValue) {
+  filtered = filtered.filter(uforeport => uforeport.city === cityInputValue);
+}
 
 //update table with queried entry
-cityFiltered.map(function (tableData) {
-   row = tbody.append("tr");
 
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
-});
 
 // //------------------------------------------------------------------------
 
 var stateInput = d3.select("#state");
 var stateInputValue = stateInput.property("value");
 console.log(stateInputValue);
-var stateFiltered = tableData.filter(uforeport => uforeport.state === stateInputValue);
-//update table with queried entry
-stateFiltered.map(function (tableData) {
-   row = tbody.append("tr");
-
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
-});
+if (stateInputValue) {
+  filtered = filtered.filter(uforeport => uforeport.state === stateInputValue);
+}
 
 // //------------------------------------------------------------------------
 
@@ -110,29 +88,30 @@ var countryInputValue = countryInput.property("value");
 console.log(countryInputValue);
 var countryFiltered = tableData.filter(uforeport => uforeport.country === countryInputValue);
 //update table with queried entry
-countryFiltered.map(function (tableData) {
-   row = tbody.append("tr");
-
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
-});
+if (countryInputValue) {
+  filtered = filtered.filter(uforeport => uforeport.country === countryInputValue);
+}
 
 // //------------------------------------------------------------------------
 
 var shapeInput = d3.select("#shape");
 var shapeInputValue = shapeInput.property("value");
 console.log(shapeInputValue);
-var shapeFiltered = tableData.filter(uforeport => uforeport.shape === shapeInputValue);
 
+if (shapeInputValue) {
+  filtered = filtered.filter(uforeport => uforeport.shape === shapeInputValue);
+}
+
+
+// clear table
+tbody.html("");
 //update table with queried entry
-shapeFiltered.map(function (tableData) {
-   row = tbody.append("tr");
+filtered.map(function (ufo) {
+    const row = tbody.append("tr");
 
-   Object.values(tableData).forEach((value) => {
-     let cell = row.append("td");
-     cell.text(value);
-   });
+    Object.values(ufo).forEach((value) => {
+      let cell = row.append("td");
+      cell.text(value);
+    });
 });
 };
